@@ -8,7 +8,8 @@ import { useRouter } from "next/router";
 import { PublicKey } from "@solana/web3.js";
 
 const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-  process.env.NEXT_PUBLIC_PLATFORM_CREATOR as string,
+  process.env.NEXT_PUBLIC_PLATFORM_CREATOR ||
+    "11111111111111111111111111111111",
 );
 
 export function useRecentPlays(platformOnly = false) {

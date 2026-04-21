@@ -50,15 +50,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     process.env.NEXT_PUBLIC_RPC_ENDPOINT ??
     "https://api.mainnet-beta.solana.com";
 
-  if (!process.env.NEXT_PUBLIC_PLATFORM_CREATOR) {
-    throw new Error(
-      "NEXT_PUBLIC_PLATFORM_CREATOR environment variable is not set"
+  // Fall back to system program during build / when env is missing so the
+  // page can still render. Operator must set NEXT_PUBLIC_PLATFORM_CREATOR
+  // in Vercel env for fees to route correctly.
+  const PLATFORM_CREATOR_ADDRESS = new PublicKey(
+    process.env.NEXT_PUBLIC_PLATFORM_CREATOR ||
+      "11111111111111111111111111111111"
+  );
+
+  if (typeof window !== "undefined" && !process.env.NEXT_PUBLIC_PLATFORM_CREATOR) {
+    console.warn(
+      "[MEME CASINO] NEXT_PUBLIC_PLATFORM_CREATOR is not set. Creator fees will route to the system program (i.e. burned). Set this env var in Vercel."
     );
   }
-
-  const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-    process.env.NEXT_PUBLIC_PLATFORM_CREATOR as string
-  );
 
   const wallets = useMemo(() => [], []);
 

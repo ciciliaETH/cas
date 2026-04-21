@@ -47,8 +47,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   const sendTransactionConfig = isPriorityFeeEnabled ? { priorityFee } : {};
 
   const RPC_ENDPOINT =
-    process.env.NEXT_PUBLIC_RPC_ENDPOINT ??
+    process.env.NEXT_PUBLIC_RPC_ENDPOINT ||
     "https://api.mainnet-beta.solana.com";
+
+  // Debug log so operator can verify the deployed build is using the right RPC.
+  if (typeof window !== "undefined") {
+    const masked = RPC_ENDPOINT.replace(/api-key=[^&]+/, "api-key=***");
+    console.log("[MEME CASINO] RPC endpoint:", masked);
+    if (RPC_ENDPOINT.includes("api.mainnet-beta.solana.com")) {
+      console.warn(
+        "[MEME CASINO] Using public Solana RPC — will 403 for browser traffic. Set NEXT_PUBLIC_RPC_ENDPOINT to a Helius / QuickNode URL in Vercel and redeploy."
+      );
+    }
+  }
 
   // Fall back to system program during build / when env is missing so the
   // page can still render. Operator must set NEXT_PUBLIC_PLATFORM_CREATOR

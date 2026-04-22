@@ -86,12 +86,11 @@ export default function Header() {
         <div className="flex gap-5 items-center">
           <Link href="/" passHref>
             <div className="flex items-center gap-2 cursor-pointer">
-              <div className="relative h-7 w-7">
-                <div className="absolute inset-0 rotate-45 rounded-[6px] bg-lime-400" />
-                <div className="absolute inset-0 grid place-items-center text-lime-400 text-lg font-black">
-                  ✦
-                </div>
-              </div>
+              <img
+                src="/logo.svg"
+                alt="MEME CASINO"
+                className="h-10 w-10"
+              />
               <span className="text-lg font-black tracking-tight whitespace-nowrap">
                 MEME <span className="text-lime-400">CASINO</span>
               </span>

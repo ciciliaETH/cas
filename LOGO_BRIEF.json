@@ -1,0 +1,190 @@
+{
+  "project": "MEME CASINO",
+  "tagline": "Provably Fair On-Chain Casino",
+  "chain": "Solana",
+
+  "brand_concept": {
+    "personality": ["degen", "crypto-native", "playful", "premium", "high-stakes"],
+    "vibe": "Meme coin degen culture meets Las Vegas neon glow. Feels like a midnight Solana casino run where every roll could flip the portfolio. Bold, unhinged, but still structured and trustworthy.",
+    "inspiration": [
+      "Stake.com neon casino aesthetic",
+      "Rollbit premium crypto gambling",
+      "Meme coin chart pumps (Pepe, BONK, WIF)",
+      "Solana ecosystem glow (purple + teal gradients)",
+      "Y2K futurism / cyberpunk arcade signage"
+    ],
+    "avoid": [
+      "Corporate / bank-like sterile look",
+      "Childish cartoonish (we are NOT a casual mobile game)",
+      "Traditional Vegas kitsch (playing cards, roulette wheels are overused)",
+      "Bitcoin orange — we are Solana-native"
+    ]
+  },
+
+  "colors": {
+    "primary": {
+      "hex": "#C6FF3A",
+      "name": "Meme Lime",
+      "role": "Accent / glow / CTA — the signature neon color",
+      "usage": "Text highlights, icon edges, hover states"
+    },
+    "secondary": {
+      "hex": "#0D0E2A",
+      "name": "Deep Space Navy",
+      "role": "Primary background",
+      "usage": "Logo backdrop, site chrome"
+    },
+    "tertiary": {
+      "hex": "#A855F7",
+      "name": "Solana Purple",
+      "role": "Gradient partner — Solana ecosystem tie-in",
+      "usage": "Gradients with primary, secondary highlights"
+    },
+    "support": [
+      { "hex": "#00FF9D", "name": "Win Green", "role": "Positive outcomes" },
+      { "hex": "#FF4D5E", "name": "Crash Red", "role": "Loss / alert" },
+      { "hex": "#FFC83D", "name": "Jackpot Gold", "role": "Big wins / premium" },
+      { "hex": "#FFFFFF", "name": "Pure White", "role": "High contrast text" }
+    ]
+  },
+
+  "typography": {
+    "wordmark_style": {
+      "weight": "Black / 900",
+      "case": "UPPERCASE",
+      "tracking": "Tight (-2% to -4%)",
+      "font_family_suggestions": [
+        "Druk Wide Bold (if licensed)",
+        "Anton (free Google Font)",
+        "Bebas Neue (free alternative)",
+        "Space Grotesk Bold (modern crypto vibe)",
+        "Inter Black (fallback)"
+      ]
+    },
+    "wordmark_layout": {
+      "structure": "MEME <space> CASINO",
+      "treatment": "'MEME' in pure white, 'CASINO' in Meme Lime (#C6FF3A)",
+      "effect": "Slight outer glow on 'CASINO' (lime, 8px blur, 40% opacity)"
+    }
+  },
+
+  "icon_concept": {
+    "primary_option": {
+      "name": "Neon Diamond Chip",
+      "description": "A 3D-rotated diamond (4-sided gem) rendered in Meme Lime with a glowing sparkle (✦) centered inside. Rotated 45°. Suggests both a crypto 'gem coin' (diamond hands / 💎) AND a casino chip. The sparkle centerpoint reads as both a slot machine star and a VRF randomness glyph.",
+      "elements": [
+        "Outer shape: rhombus / diamond, 45° rotation, rounded 6px corners",
+        "Fill: gradient from #C6FF3A (top) to #9EDC23 (bottom)",
+        "Inner: dark negative space (#0D0E2A) with 4-pointed star (✦) in Meme Lime",
+        "Outer glow: #C6FF3A at 50% opacity, 24px blur radius"
+      ],
+      "rationale": "Already used as favicon — evolves naturally into a full brand mark."
+    },
+    "alternative_options": [
+      {
+        "name": "Slot Skull",
+        "description": "Pixel-art / 8-bit skull with dollar sign eyes and three slot-machine reels (🎰) as teeth. Lime and purple accents. Heavy meme energy.",
+        "best_for": "Social avatar, Twitter PFP"
+      },
+      {
+        "name": "Pepe Degen Dealer",
+        "description": "Stylized Pepe frog head wearing a green visor and holding a SOL coin, one eye half-closed like 'trust me bro'. Feels copyright-sensitive — use loose inspiration only.",
+        "best_for": "Telegram sticker pack"
+      },
+      {
+        "name": "Solana-Chip Fusion",
+        "description": "Poker chip from above, but the chip surface IS a Solana ecosystem gradient (purple→teal). Center has 'MC' monogram in Meme Lime. Bevel + neon rim light.",
+        "best_for": "Favicon, app icon"
+      },
+      {
+        "name": "Crashing Rocket Graph",
+        "description": "Abstract line chart soaring up (crypto pump style) morphed into a rocket trail, with a casino chip at the origin. Captures 'crash' game + degen pump culture.",
+        "best_for": "Hero banner"
+      }
+    ]
+  },
+
+  "logo_variations": {
+    "primary_combination": "Icon (diamond chip) + wordmark horizontal — icon left, MEME CASINO to the right",
+    "stacked": "Icon on top, MEME CASINO centered below (for square spaces)",
+    "icon_only": "Diamond chip alone — favicon, app icon, social avatars",
+    "wordmark_only": "MEME CASINO text — letterheads, long horizontal banners",
+    "monochrome": {
+      "light_bg": "All black #0D0E2A",
+      "dark_bg": "All Meme Lime #C6FF3A",
+      "single_color": "Pure white #FFFFFF for high-contrast use"
+    }
+  },
+
+  "deliverables_needed": [
+    { "file": "logo-primary.svg", "usage": "Website header, main marketing", "size": "Vector" },
+    { "file": "logo-stacked.svg", "usage": "Square/vertical spaces", "size": "Vector" },
+    { "file": "icon.svg", "usage": "Favicon, app icon base", "size": "Vector" },
+    { "file": "favicon-32.png", "usage": "Browser tab", "size": "32x32 px" },
+    { "file": "favicon-192.png", "usage": "PWA / Android", "size": "192x192 px" },
+    { "file": "apple-touch-icon.png", "usage": "iOS home screen", "size": "180x180 px" },
+    { "file": "og-image.png", "usage": "Social share preview", "size": "1200x630 px" },
+    { "file": "twitter-banner.png", "usage": "X header", "size": "1500x500 px" },
+    { "file": "telegram-avatar.png", "usage": "Telegram profile", "size": "512x512 px" }
+  ],
+
+  "ai_generation_prompts": {
+    "midjourney_v6_primary": "neon diamond-shaped casino chip logo, lime green #C6FF3A gradient fill, dark navy background #0D0E2A, 4-pointed sparkle star in center, glowing outer rim, minimalist flat vector style, crypto casino branding, high contrast, iconic simple mark, no text, centered composition, 1:1 --style raw --s 250 --v 6",
+    "midjourney_v6_mascot": "degenerate frog mascot wearing green visor, holding neon Solana coin, lime green and purple color palette, crypto casino vibe, sticker art style, bold outlined, transparent background, 1:1 --style raw --s 500 --v 6",
+    "dalle3_primary": "Create a minimalist casino logo: a rotated diamond-shaped gem in lime neon green (#C6FF3A) with a four-pointed sparkle star at its center. Glowing edges, flat vector illustration, dark navy background (#0D0E2A). Iconic, crypto-themed, scalable. No text. 1:1 square.",
+    "stable_diffusion_sdxl": "casino chip logo vector, diamond shape, lime neon glow, solana purple accents, dark background, crypto branding, minimalist, clean lines, iconic emblem, 8k, symmetrical, 1:1",
+    "banner_social": "futuristic crypto casino banner, neon lime and purple gradient, 'MEME CASINO' bold white text with lime glow on right side, abstract Solana tokens floating, dark cosmic background, cyberpunk arcade style, wide aspect ratio, high quality digital art"
+  },
+
+  "design_rules": {
+    "minimum_size": "24px for icon, 120px wide for wordmark (any smaller loses glow detail)",
+    "clear_space": "Minimum padding around logo = 50% of icon height",
+    "do_not": [
+      "Do NOT change the Meme Lime color — it is the brand",
+      "Do NOT add drop shadows in soft gray — only lime/purple glows",
+      "Do NOT stretch or skew the wordmark",
+      "Do NOT place logo on busy photographic backgrounds without a solid overlay",
+      "Do NOT combine with competing neon colors (orange, magenta)"
+    ],
+    "do": [
+      "Pair with dark navy (#0D0E2A) or pure black backgrounds",
+      "Use lime glow effects consistently",
+      "Maintain UPPERCASE in wordmark always",
+      "Keep tight letter spacing for impact"
+    ]
+  },
+
+  "mood_references": {
+    "sites": [
+      "luck.io — dark + lime accent (our core reference)",
+      "stake.com — premium casino layout",
+      "rollbit.com — neon + cards aesthetic",
+      "gamba.so — Solana casino simplicity",
+      "jupiter.ag — Solana ecosystem visual language"
+    ],
+    "meme_culture_elements": [
+      "Diamond hands 💎",
+      "Rocket to moon 🚀",
+      "Pepe / Wojak / Chad aesthetic",
+      "Solana purple + teal gradient",
+      "Retro slot machine sparkles",
+      "Crypto chart pumps"
+    ]
+  },
+
+  "taglines_options": [
+    "Provably Fair. Unprovably Degen.",
+    "Play On-Chain. Win Off-Chain.",
+    "Where Memes Meet Multipliers",
+    "The Degenerate's Casino",
+    "5% Fee. 100% Vibes.",
+    "Solana-Powered, Degen-Approved"
+  ],
+
+  "export_guidelines": {
+    "preferred_format": "SVG (infinite scalability)",
+    "acceptable_fallbacks": "PNG 2x / 3x retina",
+    "color_profile": "sRGB",
+    "background": "Transparent for primary variants; filled for social exports"
+  }
+}

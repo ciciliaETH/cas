@@ -69,6 +69,30 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (typeof window !== "undefined") {
     const masked = RPC_ENDPOINT.replace(/api-key=[^&]+/, "api-key=***");
     console.log("[MEME CASINO] RPC endpoint:", masked, "WS:", WS_ENDPOINT);
+
+    // Silence non-fatal noise from web3.js WS subscriber (accountSubscribe
+    // fails on free WS endpoints but doesn't break gameplay).
+    const origError = console.error;
+    const origWarn = console.warn;
+    const NOISE = [
+      "accountSubscribe",
+      "ws error",
+      "WebSocket connection to",
+      "Failed to send message to service worker",
+    ];
+    const shouldMute = (args: any[]) =>
+      args.some(
+        (a) =>
+          typeof a === "string" && NOISE.some((n) => a.includes(n))
+      );
+    console.error = (...args: any[]) => {
+      if (shouldMute(args)) return;
+      origError(...args);
+    };
+    console.warn = (...args: any[]) => {
+      if (shouldMute(args)) return;
+      origWarn(...args);
+    };
   }
 
   // Fall back to system program during build / when env is missing so the

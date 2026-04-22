@@ -46,19 +46,24 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const sendTransactionConfig = isPriorityFeeEnabled ? { priorityFee } : {};
 
-  const RPC_ENDPOINT =
-    process.env.NEXT_PUBLIC_RPC_ENDPOINT ||
-    "https://api.mainnet-beta.solana.com";
+  // Default to our same-origin proxy /api/rpc — bypasses the 403 browsers
+  // hit when calling public Solana RPC directly. Must be absolute on SSR.
+  const envRpc = process.env.NEXT_PUBLIC_RPC_ENDPOINT;
+  const RPC_ENDPOINT = envRpc
+    ? envRpc
+    : typeof window !== "undefined"
+    ? `${window.location.origin}/api/rpc`
+    : "https://api.mainnet-beta.solana.com";
 
-  // Debug log so operator can verify the deployed build is using the right RPC.
+  // Separate WebSocket endpoint. Public Solana WSS blocks browsers, but
+  // dRPC's public wss works without auth and is used just for live updates
+  // (Live Wins feed). Non-critical if it fails.
+  const WS_ENDPOINT =
+    process.env.NEXT_PUBLIC_WS_ENDPOINT || "wss://solana.drpc.org";
+
   if (typeof window !== "undefined") {
     const masked = RPC_ENDPOINT.replace(/api-key=[^&]+/, "api-key=***");
-    console.log("[MEME CASINO] RPC endpoint:", masked);
-    if (RPC_ENDPOINT.includes("api.mainnet-beta.solana.com")) {
-      console.warn(
-        "[MEME CASINO] Using public Solana RPC — will 403 for browser traffic. Set NEXT_PUBLIC_RPC_ENDPOINT to a Helius / QuickNode URL in Vercel and redeploy."
-      );
-    }
+    console.log("[MEME CASINO] RPC endpoint:", masked, "WS:", WS_ENDPOINT);
   }
 
   // Fall back to system program during build / when env is missing so the
@@ -80,7 +85,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ConnectionProvider
       endpoint={RPC_ENDPOINT}
-      config={{ commitment: "processed" }}
+      config={{ commitment: "processed", wsEndpoint: WS_ENDPOINT }}
     >
       <ThemeProvider
         attribute="class"

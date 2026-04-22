@@ -7,14 +7,17 @@ export default function Footer() {
     <footer className="bg-background border border-b-0 rounded-t-2xl shadow-t-3xl">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://gamba.so/"
-            className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
-          >
-            <img src="/logo.svg" className="h-10" alt="Gamba Logo" />
-          </a>
+          <div className="flex items-center gap-2 mb-4 sm:mb-0">
+            <div className="relative h-7 w-7">
+              <div className="absolute inset-0 rotate-45 rounded-[6px] bg-lime-400" />
+              <div className="absolute inset-0 grid place-items-center text-lime-400 text-lg font-black">
+                ✦
+              </div>
+            </div>
+            <span className="text-lg font-black tracking-tight whitespace-nowrap">
+              MEME <span className="text-lime-400">CASINO</span>
+            </span>
+          </div>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>

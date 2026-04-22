@@ -27,12 +27,16 @@ export const LIVE_EVENT_TOAST = true;
 
 export const FOOTER_LINKS = [
   {
-    href: "https://explorer.gamba.so/",
-    title: "🔍 Gamba Explorer",
+    href: "#",
+    title: "About",
   },
   {
-    href: "https://gamba.so/docs",
-    title: "📖 Docs",
+    href: "#",
+    title: "How it Works",
+  },
+  {
+    href: "#",
+    title: "Support",
   },
 ];
 

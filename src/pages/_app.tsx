@@ -46,14 +46,19 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const sendTransactionConfig = isPriorityFeeEnabled ? { priorityFee } : {};
 
-  // Default to our same-origin proxy /api/rpc — bypasses the 403 browsers
-  // hit when calling public Solana RPC directly. Must be absolute on SSR.
+  // ALWAYS use same-origin proxy /api/rpc on client — avoids CORS between
+  // www and non-www redirects. Only honor env override if it's an absolute
+  // URL pointing somewhere else entirely (e.g. a paid Helius endpoint).
   const envRpc = process.env.NEXT_PUBLIC_RPC_ENDPOINT;
-  const RPC_ENDPOINT = envRpc
-    ? envRpc
-    : typeof window !== "undefined"
-    ? `${window.location.origin}/api/rpc`
-    : "https://api.mainnet-beta.solana.com";
+  const isProxyOverride =
+    envRpc &&
+    (envRpc.includes("memecasino.xyz/api/rpc") || envRpc === "/api/rpc");
+  const RPC_ENDPOINT =
+    typeof window !== "undefined"
+      ? isProxyOverride || !envRpc
+        ? `${window.location.origin}/api/rpc`
+        : envRpc
+      : envRpc || "https://api.mainnet-beta.solana.com";
 
   // Separate WebSocket endpoint. Public Solana WSS blocks browsers, but
   // dRPC's public wss works without auth and is used just for live updates

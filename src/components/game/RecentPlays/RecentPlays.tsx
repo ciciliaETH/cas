@@ -48,7 +48,7 @@ export default function RecentPlays() {
           ))}
 
       <GambaUi.Button main onClick={() => window.open(PLATFORM_EXPLORER_URL)}>
-        🚀 Platform Explorer
+        🔗 View On-Chain Activity
       </GambaUi.Button>
     </div>
   );

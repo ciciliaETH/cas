@@ -71,13 +71,13 @@ export default function HomePage() {
               {wallet.publicKey ? "🎲 Start Playing" : "🔗 Connect Wallet"}
             </button>
             <button
-              onClick={() => window.open("https://x.com")}
+              onClick={() => window.open("https://x.com/memecasino.xyz")}
               className="rounded-lg p-3 bg-white/10 hover:bg-white/20 hover:-translate-y-0.5 transform text-white transition-all duration-200 ease-in-out cursor-pointer shadow-lg hover:shadow-xl"
             >
               🐦 Follow on X
             </button>
             <button
-              onClick={() => window.open("https://t.me")}
+              onClick={() => window.open("https://t.me/memecasinoxyz")}
               className="rounded-lg p-3 bg-white/10 hover:bg-white/20 hover:-translate-y-0.5 transform text-white transition-all duration-200 ease-in-out cursor-pointer shadow-lg hover:shadow-xl"
             >
               💬 Join Telegram

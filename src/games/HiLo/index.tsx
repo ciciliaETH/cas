@@ -29,6 +29,7 @@ import { useMemo, useState } from "react";
 
 import GambaPlayButton from "@/components/GambaPlayButton";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 const BPS_PER_WHOLE = 10000;
@@ -170,7 +171,7 @@ export default function HiLo(props: HiLoConfig) {
         }
       }, 300);
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
     }
   };
 

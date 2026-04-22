@@ -9,6 +9,7 @@ import { Effect } from "./Effect";
 import GambaPlayButton from "@/components/GambaPlayButton";
 import { Text } from "@react-three/drei";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 const SIDES = {
@@ -78,7 +79,7 @@ function Flip() {
     } catch (err: any) {
       messages = ["Flip to win!"];
 
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
     } finally {
       setFlipping(false);
     }

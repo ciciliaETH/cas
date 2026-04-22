@@ -13,6 +13,7 @@ import {
 
 import GambaPlayButton from "@/components/GambaPlayButton";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 function usePlinko(props: PlinkoProps, deps: DependencyList) {
@@ -96,7 +97,7 @@ export default function Plinko() {
 
       plinko.run(result.multiplier);
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
       plinko.reset();
     }
   };

@@ -23,6 +23,7 @@ import { Table } from "./Table";
 import { computed } from "@preact/signals-react";
 import styled from "styled-components";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 const Wrapper = styled.div`
@@ -128,7 +129,7 @@ export default function Roulette() {
         sounds.play("lose");
       }
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
     }
   };
 

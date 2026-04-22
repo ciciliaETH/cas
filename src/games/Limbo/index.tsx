@@ -15,6 +15,7 @@ import {
 import GambaPlayButton from "@/components/GambaPlayButton";
 import Slider from "./slide";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 import { useState } from "react";
 
@@ -93,7 +94,7 @@ export default function Limbo() {
 
       setTimeout(() => startAnimation(1, endMultiplier, winCondition), 500);
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
     } finally {
       setPlaying(false);
     }

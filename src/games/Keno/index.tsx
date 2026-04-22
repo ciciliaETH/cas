@@ -7,6 +7,7 @@ import { GambaUi, useSound, useWagerInput } from "gamba-react-ui-v2";
 
 import GambaPlayButton from "@/components/GambaPlayButton";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useState } from "react";
 
 const GRID_SIZE = 40;
@@ -63,7 +64,7 @@ export default function Keno() {
       revealDrawnNumbers(simulatedDrawnNumbers, win);
       setGameWon(win);
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
     } finally {
       setIsPlaying(false);
     }

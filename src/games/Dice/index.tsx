@@ -14,6 +14,7 @@ import { BPS_PER_WHOLE } from "gamba-core-v2";
 import GambaPlayButton from "@/components/GambaPlayButton";
 import Slider from "./slide";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 const SOUND_PLAY = "/games/dice/play.mp3";
@@ -92,7 +93,7 @@ export default function Dice() {
         sounds.play("lose");
       }
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
       setResultIndex(-1);
     }
   };

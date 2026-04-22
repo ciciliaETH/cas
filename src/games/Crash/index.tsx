@@ -36,6 +36,7 @@ import {
 import GambaPlayButton from "@/components/GambaPlayButton";
 import Slider from "./slide";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 import { useState } from "react";
 
@@ -147,7 +148,7 @@ const CrashGame = () => {
 
       doTheIntervalThing(0, multiplierResult, win);
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
       setRocketState("idle");
     }
   };

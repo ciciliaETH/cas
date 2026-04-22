@@ -31,6 +31,7 @@ import { useMemo, useState } from "react";
 import { BPS_PER_WHOLE } from "gamba-core-v2";
 import GambaPlayButton from "@/components/GambaPlayButton";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 function Mines() {
@@ -156,7 +157,7 @@ function Mines() {
         sounds.play("finish");
       }
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
     } finally {
       setLoading(false);
       setSelected(-1);

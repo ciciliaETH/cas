@@ -31,6 +31,7 @@ import { ItemPreview } from "./ItemPreview";
 import { Slot } from "./Slot";
 import { StyledSlots } from "./Slots.styles";
 import { toast } from "sonner";
+import { formatGambaError } from "@/utils/formatError";
 import { useGamba } from "gamba-react-v2";
 
 const Messages: FC<{ messages: string[] }> = ({ messages }) => {
@@ -138,7 +139,7 @@ export default function Slots() {
 
       setTimeout(() => revealSlot(combination), revealDelay);
     } catch (err: any) {
-      toast.error(`An error occurred: ${err.message}`);
+      toast.error(formatGambaError(err));
       setSpinning(false);
       setRevealedSlots(NUM_SLOTS);
     }

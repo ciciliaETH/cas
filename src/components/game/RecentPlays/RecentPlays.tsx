@@ -14,7 +14,10 @@ const PLATFORM_CREATOR_ADDRESS = new PublicKey(
 );
 
 export default function RecentPlays() {
-  const events = useRecentPlays(true);
+  // platformOnly=false → show plays from ALL Gamba casinos so the feed is
+  // alive from day one. Once we have meaningful own-platform volume we can
+  // flip this to true to show only our players.
+  const events = useRecentPlays(false);
   const [selectedGame, setSelectedGame] =
     useState<GambaTransaction<"GameSettled"> | null>(null);
   const PLATFORM_EXPLORER_URL = `https://explorer.gamba.so/platform/${PLATFORM_CREATOR_ADDRESS.toString()}`;

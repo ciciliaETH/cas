@@ -1,17 +1,10 @@
 // src/components/game/RecentPlays/RecentPlays.tsx
 import { GambaTransaction } from "gamba-core-v2";
-import { GambaUi } from "gamba-react-ui-v2";
 import { RecentPlay } from "@/utils/RecentPlay";
 import { ShareModal } from "./ShareModal";
 import { TimeDiff } from "@/utils/TimeDiff";
 import { useRecentPlays } from "../../../hooks/useRecentPlays";
 import { useState } from "react";
-import { PublicKey } from "@solana/web3.js";
-
-const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-  process.env.NEXT_PUBLIC_PLATFORM_CREATOR ||
-    "11111111111111111111111111111111",
-);
 
 export default function RecentPlays() {
   // platformOnly=false → show plays from ALL Gamba casinos so the feed is
@@ -20,7 +13,6 @@ export default function RecentPlays() {
   const events = useRecentPlays(false);
   const [selectedGame, setSelectedGame] =
     useState<GambaTransaction<"GameSettled"> | null>(null);
-  const PLATFORM_EXPLORER_URL = `https://explorer.gamba.so/platform/${PLATFORM_CREATOR_ADDRESS.toString()}`;
 
   return (
     <div className="w-full relative flex flex-col gap-2.5">
@@ -49,10 +41,6 @@ export default function RecentPlays() {
               className="h-10 w-full rounded-lg animate-Skeleton bg-gray-300"
             ></div>
           ))}
-
-      <GambaUi.Button main onClick={() => window.open(PLATFORM_EXPLORER_URL)}>
-        🔗 View On-Chain Activity
-      </GambaUi.Button>
     </div>
   );
 }
